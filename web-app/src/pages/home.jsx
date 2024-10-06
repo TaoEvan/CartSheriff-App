@@ -21,10 +21,10 @@ export default function Home() {
 
 
       // Make the api request and send cart id to backend along with userId to grab the userId
-      axios.get(`http://localhost:5000/api/home`, {
+      axios.get(`http://localhost:9000/api/home`, {
         params: {
           cartId: data.cartId,
-          userName: username
+          userName: username,
         }
       })
       .then(response => {

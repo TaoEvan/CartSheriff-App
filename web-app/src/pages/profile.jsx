@@ -25,7 +25,7 @@ export default function Profile(props) {
     // const [username, setUsername] = useState("");
 
     const fetchUserData = (username) => {
-        axios.get(`http://localhost:5000/api/profile`, {
+        axios.get(`http://localhost:9000/api/profile`, {
           params: {
             userName: username
           }
