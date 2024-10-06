@@ -46,6 +46,7 @@ class QRScanner extends Component {
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
+          facingMode={"environment"}
         />
         
         <div className="card bg-neutral text-neutral-content w-80 my-10">
