@@ -34,7 +34,7 @@ class Music extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="my-6">
         <button className="btn btn-neutral" onClick={this.play}>Play</button>
         <button className="btn btn-neutral" onClick={this.pause}>Pause</button>
       </div>
