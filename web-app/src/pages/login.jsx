@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 
-export default function Login() {
+export default function Login(props) {
 
   const [username, setUsername] = useState("Username1");
   const [password, setPassword] = useState("Password1");
@@ -19,6 +19,7 @@ export default function Login() {
 
   const navigateToHome = () => {
     // Navigate to /home and pass username and password as state
+    props.setUsername(username);
     navigate("/home", {
       state: { username, password },
     });

@@ -13,16 +13,22 @@ export default function Home() {
 
   const handleScan = (data) => {
     if(data) {
+      // data is info obtained from QR code
       data = JSON.parse(data);
       console.log("Scanned data: ", data.cartId);
       setqrData(data.cartId);
       // change the page
 
 
-      // Make the api request and send cart id to backend
-      axios.get("http://localhost:5000/api/home/:" + data.cartId)
+      // Make the api request and send cart id to backend along with userId to grab the userId
+      axios.get(`http://localhost:5000/api/home`, {
+        params: {
+          cartId: data.cartId,
+          userName: username
+        }
+      })
       .then(response => {
-        console.log(response.data)
+        console.log(response.data); // dont really do anything with response, its not really a get request tbh; maybe post cause we make a new contract
     })
       .catch(error => console.error('Error: ', error));
     }
