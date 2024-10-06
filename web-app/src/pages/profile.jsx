@@ -9,6 +9,7 @@ export default function Profile(props) {
         "karmaPoints": 20, // this can either be digital currency or number of carts missing
         "cartsSaved": 10, // number of carts they saved from other people
         "cartsReturned": 50, // number of carts they returned properly
+        "cartsNotReturned": 10,
         "penaltyPoints": 5, // it should be in dollars
         "totalCartsSignedOut": 100,
         // "evaluationText": "Looking good!",
@@ -60,11 +61,11 @@ export default function Profile(props) {
             <div className="card bg-base-100 w-96 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">Profile</h2>
-                    <p>Name: {name}</p>
+                    <p>Name: {backend.name}</p>
                     
-                    <p>Karma: {karmaPoints}</p>
+                    <p>Karma: {backend.karmaPoints}</p>
 
-                    <p>Penalty: {penaltyPoints}</p>
+                    <p>Penalty: {backend.penaltyPoints}</p>
                     
                 </div>
                 </div>
@@ -72,7 +73,7 @@ export default function Profile(props) {
                 <div className="stats shadow w-80">
                     <div className="stat">
                         <div className="stat-title">Carts Returned Vs. Carts Not Returned</div>
-                        <div className="stat-value">{cartsReturned} : {cartsNotReturned}</div>
+                        <div className="stat-value">{backend.cartsReturned} : {backend.cartsNotReturned}</div>
                         {/* <div className="stat-desc">{backend.evaluationText}</div> */}
                     </div>
                 </div>

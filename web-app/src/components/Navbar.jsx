@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
                     <li>
                     <Link to="/profile">Profile</Link>
                     </li>
-                    <li><a>Settings</a></li>
+                    {/* <li><a>Settings</a></li> */}
                     <li>
                     <Link to="/">Logout</Link>
                     </li>

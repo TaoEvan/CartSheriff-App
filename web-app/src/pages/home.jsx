@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import QRScanner from "../components/QRScanner";
 import { useState } from "react";
 import axios from 'axios';
+import Music from "../components/Music"
 
 export default function Home() {
   const location = useLocation();
@@ -38,6 +39,7 @@ export default function Home() {
     setqrData(null);
   }
 
+
     return (
     <div className="bg-[#404756]">
         <Navbar/>
@@ -63,6 +65,9 @@ export default function Home() {
               </div>
             </div>
         </div>}
+
+        <Music />
+
 
         </div>
     </div>
