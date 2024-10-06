@@ -20,7 +20,7 @@ class QRScanner extends Component {
     if (data && typeof data === 'object' && data.text) {
       this.setState({ result: data.text, error: null }); // Update result and reset error
       // Call the onScan prop if provided
-      this.props.onScan(data);
+      this.props.onScan(data.text);
     } else {
       // If the data is not valid, set an error message
       this.setState({ result: 'No result', error: 'Invalid QR code format.' });
@@ -50,11 +50,12 @@ class QRScanner extends Component {
         
         <div className="card bg-neutral text-neutral-content w-80 my-10">
           <div className="card-body items-center text-center">
-            <h2 className="card-title">{this.state.result}</h2>
+          {/* {this.state.result} */}
+            <h2 className="card-title">Please scan the QR Code on the Shopping Cart</h2>
             {/* Display error message if there is an error */}
-            {this.state.error && (
+            {/* {this.state.error && (
               <p className="text-red-500">{this.state.error}</p>
-            )}
+            )} */}
           </div>
         </div>
       </div>

@@ -2,33 +2,61 @@ import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import QRScanner from "../components/QRScanner";
 import { useState } from "react";
+import axios from 'axios';
 
 export default function Home() {
   const location = useLocation();
   const { username, password } = location.state || {}; // Destructure username and password from the state
-  const [ qrData, setqrData ] = useState(null);
+  const [ qrData, setqrData ] = useState(null); // stores the cartId as an int
+
+  // userId is 6 digits (123456)
 
   const handleScan = (data) => {
-    console.log("Scanned data: ", data);
-    // setqrData(data);
+    if(data) {
+      data = JSON.parse(data);
+      console.log("Scanned data: ", data.cartId);
+      setqrData(data.cartId);
+      // change the page
+
+
+      // Make the api request and send cart id to backend
+      axios.get("http://localhost:5000/api/home/:" + data.cartId)
+      .then(response => {
+        console.log(response.data)
+    })
+      .catch(error => console.error('Error: ', error));
+    }
+  }
+
+  const scanAgain = () => {
+    setqrData(null);
   }
 
     return (
-    <div className="artboard phone-4 bg-[#404756]">
+    <div className="bg-[#404756]">
         <Navbar/>
         <div class="flex flex-col items-center min-h-screen">
 
       
 
-          <h2 className="py-10 text-xl">Welcome {username}</h2>
+          <h2 className="py-10 text-xl text-[#d7dde4]">Welcome {username}</h2>
 
-          <QRScanner onScan={handleScan}/>
+          {/* if no qr data, show qr scanner */}
+          {/*qrData == null && <QRScanner onScan={handleScan}/>*/}
+          {!qrData && <QRScanner onScan={handleScan} />}
 
-          <p className="text-2xl p-10">What is good my ig</p>
-          {qrData != null && <p>{qrData.cartId}</p>}
-          {qrData != null && qrData.cartId && <p>{qrData.cartId}</p>}
+          {/* {qrData != null && <p className="text-lg text-[#d7dde4] p-10 my-12 text-center">You have successfully borrowed shopping cart #{qrData}</p>}
+          {qrData && <button className="btn btn-neutral" onClick={scanAgain}>Scan Again</button>} */}
 
-          
+          {qrData && <div className="card bg-base-100 w-80 shadow-xl mt-20">
+            <div className="card-body">
+              <h2 className="card-title">Have fun shopping!</h2>
+              <p className="my-6">You have successfully borrowed shopping cart #{qrData}</p>
+              <div className="card-actions justify-end">
+              {<button className="btn btn-neutral" onClick={scanAgain}>Scan Again</button>}
+              </div>
+            </div>
+        </div>}
 
         </div>
     </div>

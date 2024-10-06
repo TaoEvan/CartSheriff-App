@@ -7,7 +7,7 @@ import Profile from './pages/profile';
 
 export default function App() {
   return (
-    <div className="App bg-[#404756]">
+    <div className="App bg-[#404756] flex justify-center">
       <div className="artboard phone-4">
       <Routes>
          <Route path='/' element={<Login/>} />

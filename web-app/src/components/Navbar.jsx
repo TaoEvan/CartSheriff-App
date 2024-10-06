@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 
    return (
-    <div className="navbar bg-base-100 bg-[#404756]">
+    <div className="navbar bg-[#404756]">
         <div className="flex-1">
-            <a className="btn btn-ghost text-xl">Cart Sheriff</a>
+            <a className="btn btn-ghost text-xl text-[#d7dde4]">Cart Sheriff</a>
         </div>
         <div className="flex-none">
             <div className="dropdown dropdown-end">

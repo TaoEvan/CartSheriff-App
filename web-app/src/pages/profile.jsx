@@ -22,9 +22,9 @@ export default function Profile() {
     };
 
     return (
-        <div className="artboard phone-4">
+        <div className="">
         <div className="flex flex-col py-10 items-center min-h-screen space-y-4">
-            <h1 className="text-center text-4xl font-bold">Cart Sheriff</h1>
+            <h1 className="text-center text-4xl font-bold text-[#d7dde4]">Cart Sheriff</h1>
             <div className="card bg-base-100 w-96 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">Profile</h2>

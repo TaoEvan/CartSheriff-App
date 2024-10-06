@@ -25,12 +25,12 @@ export default function Login() {
   };
 
   return (
-      <div className="artboard phone-4">
+      <div className="">
 <div className="flex flex-col py-10 items-center min-h-screen space-y-4">
 
-        <h1 className="text-center text-4xl font-bold">Cart Sheriff</h1>
+        <h1 className="text-center text-4xl font-bold text-[#d7dde4]">Cart Sheriff</h1>
 
-        <div className="card card-compact bg-base-100 w-100 shadow-xl mt-5 py-8">
+        <div className="card card-compact bg-[#d7dde4] w-100 shadow-xl mt-5 py-8">
           <figure>
             <img
               src="/images/CartSheriffLogo.png"
